@@ -19,6 +19,9 @@ Automatically analyse and tag your Piwigo photos using **Claude AI vision** (Ant
 ## Installation
 
 1. Copy the `claude_tagger` folder into your Piwigo `plugins/` directory.
+
+![Installation PNG image](Piwigo claude-ai-tagger install.png)
+
 2. In Piwigo admin go to **Plugins → Manage** and activate **Claude AI Tagger**.
 3. Go to **Plugins → Claude AI Tagger** and paste your API key, then click **Save Settings**.
 
