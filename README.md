@@ -69,6 +69,8 @@ Enable or disable detection for: Objects, Scenes, People/Faces, Actions, Colors,
 
 ## Usage
 
+![Plugin tag photos PNG image](images/Piwigo-tagger-tag-photos.png)
+
 ### Single photo
 Go to **Tag Photos → Tag a Single Photo**, enter the photo's numeric ID (visible in the URL when editing a photo, e.g. `?page=photo&image_id=42`), and click **Tag It**.
 
