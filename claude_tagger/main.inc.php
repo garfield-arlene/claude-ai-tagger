@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Claude AI Tagger
-Version: 2.17.0
+Version: 2.18.0
 Description: Uses Claude AI vision to automatically generate and apply relevant tags to your Piwigo photos. Detects objects, scenes, faces, logos, colors, and more.
 Plugin URI: https://piwigo.org/ext/extension_view.php?eid=claude_tagger
 Author: Claude AI Tagger
@@ -53,6 +53,7 @@ function claude_tagger_default_config(): array
             'nature'   => true,
         ],
         'custom_prompt'   => '',
+        'avoided_tags'    => '',
         'tag_prefix'      => '',
         'overwrite_tags'  => false,
         'create_new_tags' => true,
@@ -245,6 +246,23 @@ function claude_tagger_tag_image(int $image_id): array
     if (!$tags_result['success']) return $tags_result;
 
     $raw_tags = $tags_result['tags'];
+
+    // Post-filter: remove any avoided tags that slipped through
+    $avoided_cfg = trim($cfg['avoided_tags'] ?? '');
+    if ($avoided_cfg !== '' && !empty($raw_tags)) {
+        $avoid_words = array_filter(
+            array_map('strtolower', array_map('trim', preg_split('/[,\n]+/', $avoided_cfg))),
+            fn($t) => $t !== ''
+        );
+        $raw_tags = array_values(array_filter($raw_tags, function($tag) use ($avoid_words) {
+            $tag_lc = strtolower($tag);
+            foreach ($avoid_words as $word) {
+                if ($word !== '' && (strpos($tag_lc, $word) !== false)) return false;
+            }
+            return true;
+        }));
+    }
+
     $prefix   = trim($cfg['tag_prefix'] ?? '');
     if ($prefix !== '') {
         $raw_tags = array_map(fn($t) => $prefix . $t, $raw_tags);
@@ -314,6 +332,16 @@ function claude_tagger_build_prompt(array $cfg, array $image_meta): string
     $max     = (int)($cfg['max_tags'] ?? 20);
     $conf_lvl = $cfg['min_confidence'] ?? 'medium';
     $custom  = trim($cfg['custom_prompt'] ?? '');
+    $avoided = trim($cfg['avoided_tags']  ?? '');
+
+    // Parse avoided tags into a clean list
+    $avoid_list = [];
+    if ($avoided !== '') {
+        $avoid_list = array_filter(
+            array_map('trim', preg_split('/[,\n]+/', $avoided)),
+            fn($t) => $t !== ''
+        );
+    }
 
     $cat_label_map = [
         'objects'  => 'physical objects and items',
@@ -348,6 +376,12 @@ function claude_tagger_build_prompt(array $cfg, array $image_meta): string
             . "- {$conf_instruction}\n"
             . "- {$lang_instruction}\n"
             . "- No duplicate tags.\n";
+
+    if (!empty($avoid_list)) {
+        $avoid_str = implode('", "', array_map('strtolower', $avoid_list));
+        $prompt .= "- NEVER include any of these tags or phrases: \"" . $avoid_str . "\".\n";
+        $prompt .= "- Also avoid any tags that are synonyms or close variants of the above.\n";
+    }
 
     if ($custom !== '') $prompt .= "\nAdditional instructions: $custom\n";
     $prompt .= "\nReturn only the JSON array. Example: [\"dog\",\"park\",\"sunny-day\"]";

@@ -18,7 +18,7 @@
       </div>
       <div>
         <h2 class="ct-title">Claude AI Tagger</h2>
-        <p class="ct-subtitle">Automatically tag your photos using Claude AI vision — v2.17.0</p>
+        <p class="ct-subtitle">Automatically tag your photos using Claude AI vision — v2.18.0</p>
       </div>
     </div>
   </div>
@@ -137,6 +137,12 @@
           <textarea id="ct_prompt" name="custom_prompt" rows="3" class="ct-textarea"
                     maxlength="500" placeholder="e.g. Also tag the photography style: portrait, macro, street…">{$CT_CFG.custom_prompt|escape:'html'}</textarea>
           <p class="ct-hint">{'Max 500 characters. Appended to the standard prompt.'|translate}</p>
+        </div>
+        <div class="ct-field">
+          <label for="ct_avoided">🚫 {'Tags to avoid'|translate} <em>(optional)</em></label>
+          <textarea id="ct_avoided" name="avoided_tags" rows="4" class="ct-textarea"
+                    maxlength="1000" placeholder="playing cards, card game, collectible, wood surface, indoors">{$CT_CFG.avoided_tags|escape:'html'}</textarea>
+          <p class="ct-hint">{'Comma-separated words or phrases. Claude will be instructed never to use these tags, and any that slip through will be filtered out automatically. Max 1000 characters.'|translate}</p>
         </div>
       </div>
 

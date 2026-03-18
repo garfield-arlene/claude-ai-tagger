@@ -138,6 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['action'])) {
             'overwrite_tags'     => !empty($_POST['overwrite_tags']),
             'create_new_tags'    => !empty($_POST['create_new_tags']),
             'custom_prompt'      => substr(strip_tags(isset($_POST['custom_prompt']) ? $_POST['custom_prompt'] : ''), 0, 500),
+            'avoided_tags'       => substr(strip_tags(isset($_POST['avoided_tags'])   ? $_POST['avoided_tags']   : ''), 0, 1000),
             'tag_categories'     => array(),
         );
 
