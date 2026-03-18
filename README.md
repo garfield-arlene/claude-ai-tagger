@@ -6,7 +6,7 @@ Automatically analyse and tag your Piwigo photos using **Claude AI vision** (Ant
 
 ## Requirements
 
-- **Piwigo** 13.x or 16.x (tested on 16.3) - [https://www.piwigo.org/](https://www.piwigo.org/)
+- **Piwigo** 13.x or 16.x (tested on 16.3) - Download from [https://www.piwigo.org/](https://www.piwigo.org/)
 - **PHP** 7.4+ with the `curl` extension enabled
 - **Anthropic API key** — get one free at [console.anthropic.com](https://console.anthropic.com)
 
