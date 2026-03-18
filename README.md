@@ -77,6 +77,10 @@ Go to **Tag Photos → Tag a Single Photo**, enter the photo's numeric ID (visib
 ### Batch tagging
 Go to **Tag Photos → Batch Tagging**. Leave the ID field empty to process the most recent N photos, or enter a comma-separated list of IDs. A 300 ms delay is applied between requests to respect API rate limits.
 
+The easier way to use Batch Tagging is to use Piwigo's Batch Manager, use the search filter for "with no tag", hover over the image, and click "Edit photo" ( pencil icon ). You will find the ID number at the top saying "Edit photo #99999" ( replace 99999 with your image ID ). Copy this number into the Batch Tagging box, add up to 20 IDs separated by commas.
+
+![Plugin tag photos PNG image](images/Piwigo-tagger-batch-manager-01.png)
+
 ### Auto-tag on upload
 Enable **Auto-tag on upload** in Settings. Every photo added via the Piwigo uploader will be tagged automatically.
 
