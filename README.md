@@ -135,6 +135,7 @@ claude_tagger/
 
 | Version | Notes |
 |---|---|
+| 2.18.0 | Add custom option for keywords to avoid for tags |
 | 2.17.0 | First functioning release |
 | 2.6.0 | Add diagnostic model ID fields to settings page |
 | 2.5.0 | Stale model ID auto-migration; Haiku as default |
