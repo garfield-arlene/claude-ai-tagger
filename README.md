@@ -124,6 +124,7 @@ claude_tagger/
 
 | Version | Notes |
 |---|---|
+| 2.17.0 | First functioning release |
 | 2.6.0 | Add diagnostic model ID fields to settings page |
 | 2.5.0 | Stale model ID auto-migration; Haiku as default |
 | 2.4.0 | Fix model IDs to full snapshot strings |
