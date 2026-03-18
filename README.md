@@ -95,7 +95,7 @@ Both should show the same full snapshot ID (e.g. `claude-haiku-4-5-20251001`). I
 
 | Error | Likely cause |
 |---|---|
-| "Not enough credits" or "invalid model" | Model ID is wrong — check the diagnostic fields and re-save Settings |
+| "Not enough credits" or "invalid model" | You need API credits - Click the "Purchase API Credits button to add credits to your account |
 | "File not found" | Photo stored remotely or path incorrect |
 | Tags not appearing | Ensure **Create New Tags** is enabled |
 | Batch very slow | Normal — 300 ms delay per request is intentional |
