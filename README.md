@@ -85,6 +85,7 @@ The easier way to use Batch Tagging is to use Piwigo's Batch Manager, use the se
 Enable **Auto-tag on upload** in Settings. Every photo added via the Piwigo uploader will be tagged automatically.
 
 ![New!](images/new_banner_354.jpg)
+<img src="images/new_banner_354.jpg" alt="New!" width="500">
 ### List of words to avoid for tags
 There are times when AI generates photo tags that are useless. Thank you, "Captian Obvious"! This feature allows you to add a list of words that AI won't use for tags.
 
