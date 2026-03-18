@@ -84,6 +84,12 @@ The easier way to use Batch Tagging is to use Piwigo's Batch Manager, use the se
 ### Auto-tag on upload
 Enable **Auto-tag on upload** in Settings. Every photo added via the Piwigo uploader will be tagged automatically.
 
+![New!](https://www.freepik.com/free-vector/new-tag-3d-vector-ribbon-banner-new-collection-badge-digital-marketing-web_30137989.htm#fromView=keyword&page=1&position=1&uuid=36d2716d-3816-458e-83ec-8dccf4b9ca74&query=Whats+new)
+### List of words to avoid for tags
+There are times when AI generates photo tags that are useless. Thank you, "Captian Obvious"! This feature allows you to add a list of words that AI won't use for tags.
+
+![Plugin settings custom instructions keywords PNG image](images/Piwigo-tagger-custom-instruction-keywords-to-avoid.png)
+
 ---
 
 ## Diagnostic fields
