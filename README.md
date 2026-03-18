@@ -10,6 +10,10 @@ Automatically analyse and tag your Piwigo photos using **Claude AI vision** (Ant
 - **PHP** 7.4+ with the `curl` extension enabled
 - **Anthropic API key** — get one free at [console.anthropic.com](https://console.anthropic.com)
 
+## Alternative setup
+- **Piwigo** Docker Container - Download from [https://hub.docker.com/r/linuxserver/piwigo](https://hub.docker.com/r/linuxserver/piwigo)
+- **Anthropic API key** — get one free at [console.anthropic.com](https://console.anthropic.com)
+
 ---
 
 ## Installation
